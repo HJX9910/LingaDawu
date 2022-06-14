@@ -36,10 +36,11 @@ public class CommonController {
 
         //原始文件名
         String originalFilename = file.getOriginalFilename();//abc.jpg
-        String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
 
+//        String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
         //使用UUID重新生成文件名，防止文件名称重复造成文件覆盖
-        String fileName = UUID.randomUUID().toString() + suffix;//dfsdfdfd.jpg
+//        String fileName = UUID.randomUUID().toString() + suffix;//dfsdfdfd.jpg
+        String fileName =originalFilename;//dfsdfdfd.jpg
 
         //创建一个目录对象
         File dir = new File(basePath);

@@ -80,7 +80,6 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
             OrderDetail orderDetail = new OrderDetail();
             orderDetail.setOrderId(orderId);
             orderDetail.setNumber(item.getNumber());
-            orderDetail.setDishFlavor(item.getDishFlavor());
             orderDetail.setDishId(item.getDishId());
             orderDetail.setSetmealId(item.getSetmealId());
             orderDetail.setName(item.getName());
@@ -104,10 +103,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
 
         orders.setConsignee(addressBook.getConsignee());
         orders.setPhone(addressBook.getPhone());
-        orders.setAddress((addressBook.getProvinceName() == null ? "" : addressBook.getProvinceName())
-                + (addressBook.getCityName() == null ? "" : addressBook.getCityName())
-                + (addressBook.getDistrictName() == null ? "" : addressBook.getDistrictName())
-                + (addressBook.getDetail() == null ? "" : addressBook.getDetail()));
+        orders.setAddress( (addressBook.getDetail() == null ? "" : addressBook.getDetail()));
         //向订单表插入数据，一条数据
         this.save(orders);
 
